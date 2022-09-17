@@ -26,8 +26,13 @@ public class GroupNode {
     private Set<RelationEdge> sets = new HashSet<>();
 
     public void addRelation(StudentNode sonNode, String name) {
-        RelationEdge relationNode = new RelationEdge(this, sonNode, name);
-        sets.add(relationNode);
-        sonNode.getSets().add(relationNode);
+        try{
+            RelationEdge relationNode = new RelationEdge(this, sonNode, name);
+            sets.add(relationNode);
+            sonNode.getSets().add(relationNode);
+        }catch (Exception e){
+            System.out.println("Error:" + e);
+        }
+
     }
 }

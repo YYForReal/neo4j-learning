@@ -1,9 +1,12 @@
 package com.loading.neo4j.entity;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.neo4j.ogm.annotation.*;
 
 @RelationshipEntity(type = "RelationEdge")
-@Data
+@Setter
+@Getter
 public class RelationEdge {
     @Id
     @GeneratedValue

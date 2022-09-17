@@ -1,6 +1,5 @@
 package com.loading.neo4j.controller;
 
-
 import com.loading.neo4j.entity.*;
 import com.loading.neo4j.repository.GroupRepository;
 import com.loading.neo4j.repository.StudentRepository;
@@ -22,7 +21,7 @@ public class GroupController {
     private GroupRepository groupRepository;
 
     @GetMapping(value = "/create")
-    public void createNodeRelation() {
+    public String createNodeRelation() {
         StudentNode studentNode1 = new StudentNode();
         studentNode1.setName("Alen");
         studentNode1.setSex("男");
@@ -39,6 +38,8 @@ public class GroupController {
         groupNode.addRelation(studentNode1, "includes");
         groupNode.addRelation(studentNode2, "includes");
         groupRepository.save(groupNode);
+
+        return "节点增加成功";
     }
 }
 
